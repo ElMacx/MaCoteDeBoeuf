@@ -9,17 +9,17 @@ import { OrdersPage } from '../orders/orders'
 export class CartPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
-    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
+    //this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
   }
   ionViewWillEnter() {
-  this.tabBarElement.style.display = 'none';
+    //this.tabBarElement.style.display = 'none';
   }
   ionViewWillLeave() {
-    this.tabBarElement.style.display = 'flex';
+    //this.tabBarElement.style.display = 'flex';
   }
   presentConfirm() {
   let alert = this.alerCtrl.create({

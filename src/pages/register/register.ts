@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 
 /**
@@ -20,8 +20,7 @@ export class RegisterPage {
   password:any;
   confirmPass:any;
   email:any;
-  phone:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -29,7 +28,30 @@ export class RegisterPage {
   }
 
   doRegister() {
-    this.navCtrl.setRoot(TabsPage)
+    if (this.password != this.confirmPass) {
+      this.presentConfirm('Les mots de passe ne correspondent pas')
+    } else {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((user) => {
+        var currentUser = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: this.firstname + ' ' + this.name,
+        }).then(() => {
+          this.navCtrl.setRoot(TabsPage);
+        }).catch((error) => {
+          this.presentConfirm(error.message);
+        });
+      }).catch((error) => {
+        this.presentConfirm(error.message);
+      });
+    }
+  }
+  presentConfirm(msg) {
+    let alert = this.alertCtrl.create({
+        title: 'Erreur',
+        subTitle: msg,
+        buttons: ['Ok']
+      });
+      alert.present();
   }
 
 }
