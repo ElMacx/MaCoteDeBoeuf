@@ -1,21 +1,18 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Connexion</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email" [(ngModel)]="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Mot de passe</ion-label>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
-  </ion-item>
-    <button ion-button round (click)="doConnectUser();">Connexion</button>
-    <button ion-button round (click)="registerUser();">S'inscrire</button>
+<ion-content padding class="page-login">
+  <div class="login-body">
+    <ion-item class="input-text">
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
+    </ion-item>
+    <ion-item class="input-text">
+      <ion-label floating>Mot de passe</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <div style="text-align: center; margin-top: 50px;">
+      <button class="login-button" (click)="doConnectUser();">Connexion</button>
+    </div>
+    <div>
+      <button class="go-to-register-button" (click)="registerUser();">S'inscrire</button>
+    </div>
+  </div>
 </ion-content>

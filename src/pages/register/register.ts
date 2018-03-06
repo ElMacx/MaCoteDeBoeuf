@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { GlobalVarProvider } from '../../providers/global-var/global-var';
+import { RestProvider } from '../../providers/rest/rest';
+import { LoginPage } from '../login/login';
 
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-register',
@@ -20,7 +17,8 @@ export class RegisterPage {
   password:any;
   confirmPass:any;
   email:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  phone:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public restProvider: RestProvider, public globalVar: GlobalVarProvider) {
   }
 
   doRegister() {
@@ -28,19 +26,21 @@ export class RegisterPage {
       this.presentConfirm('Les mots de passe ne correspondent pas')
     } else {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((user) => {
-        var currentUser = firebase.auth().currentUser;
-        user.updateProfile({
-          displayName: this.firstname + ' ' + this.name,
+        this.globalVar.currentUser = user;
+        this.restProvider.addUser({
+          name: this.name,
+          firstname: this.firstname,
+          phone: this.phone,
+          mail: this.email
         }).then(() => {
           this.navCtrl.setRoot(TabsPage);
-        }).catch((error) => {
-          this.presentConfirm(error.message);
-        });
+        })
       }).catch((error) => {
         this.presentConfirm(error.message);
       });
     }
   }
+
   presentConfirm(msg) {
     let alert = this.alertCtrl.create({
         title: 'Erreur',
@@ -48,6 +48,10 @@ export class RegisterPage {
         buttons: ['Ok']
       });
       alert.present();
+  }
+
+  goToLogin() {
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

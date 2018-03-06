@@ -11,6 +11,7 @@ import { OrdersPage } from '../pages/orders/orders';
 import { CartPage } from '../pages/cart/cart';
 import { RegisterPage } from '../pages/register/register';
 import { ProductPage } from '../pages/product/product';
+import { UserPage } from '../pages/user/user';
 import { OrderPage } from '../pages/order/order';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,7 +33,8 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
     CartPage,
     RegisterPage,
     ProductPage,
-    OrderPage
+    OrderPage,
+    UserPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
     CartPage,
     RegisterPage,
     ProductPage,
-    OrderPage
+    OrderPage,
+    UserPage
   ],
   providers: [
     StatusBar,

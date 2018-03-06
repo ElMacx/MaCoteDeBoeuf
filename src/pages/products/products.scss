@@ -1,3 +1,22 @@
-page-products {
+.page-products {
+  background-image: url('../../assets/imgs/bg.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  flex: 1;
+  flex-direction: column;
+}
 
+.item-img {
+  float: left;
+}
+
+.item-title {
+  text-align: left;
+  font-size: 20px;
+}
+
+.cart-icon {
+  background-color: rgba(117, 190, 218, 0.0);
+  font-size: 15px;
+  color: #c0392b;
 }

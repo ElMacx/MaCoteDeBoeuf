@@ -1,3 +1,37 @@
-page-product {
+.page-product {
+  background-image: url('../../assets/imgs/bg.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  flex: 1;
+  flex-direction: column;
+}
 
+.data-container {
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 4px;
+}
+
+p {
+  text-align: justify;
+}
+
+.input-number-product {
+  width: 40px;
+  display: inline-block;
+  text-align: right;
+}
+
+.add-to-cart-button {
+  background-color: #2980b9;
+  font-weight: bold;
+  font-size: 15px;
+  width: 170px;
+  height: 40px;
+  border-radius: 2px;
+  color: white;
+}
+
+.p-style {
+  font-size: 15px;
 }

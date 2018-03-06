@@ -18,15 +18,53 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class OrdersPage {
 
-  orders:any;
+  onGoingOrders = [];
+  finishedOrders = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVar: GlobalVarProvider, public restProvider: RestProvider) {
     this.getOrders();
   }
 
   getOrders() {
     this.restProvider.getOrders().then((data) => {
-      this.orders = data;
+      data.forEach((elem) => {
+        if (elem.state != 4) {
+          this.onGoingOrders.push(elem);
+        } else {
+          this.finishedOrders.push(elem);
+        }
+      })
     })
+  }
+
+  displayState(state) {
+    var ret = "";
+    switch (state) {
+      case 1:
+        ret = "Commande en attente de validation";
+        break;
+      case 2:
+        ret = "Commande en cours de préparation";
+        break;
+      case 3:
+        ret = "Commande à venir récupérée";
+        break;
+      case 4:
+        ret = "Commande terminée";
+        break;
+      case -1:
+        ret = "Commande annulée, contactez le magasin pour plus d'informations";
+        break;
+    }
+    return ret;
+  }
+
+  truncateText(text, length) {
+    var truncated = text;
+
+    if (truncated.length > length) {
+        truncated = truncated.substr(0, length) + '...';
+    }
+    return truncated;
   }
 
   openCartPage() {

@@ -27,13 +27,13 @@ export class LoginPage {
   doConnectUser() {
       const result = firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
         this.globalVar.currentUser = user;
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(TabsPage, {},  { animate: true, animation: "ios-transition" });
       }).catch((error) => {
         this.presentConfirm(error.message)
       });
   }
   registerUser() {
-    this.navCtrl.push(RegisterPage);
+    this.navCtrl.setRoot(RegisterPage, {},  { animate: true, animation: "ios-transition" });
   }
   presentConfirm(msg) {
     let alert = this.alertCtrl.create({

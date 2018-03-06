@@ -1,3 +1,29 @@
-page-register {
+.page-register {
+  background-image: url('../../assets/imgs/background.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  flex: 1;
+  flex-direction: column;
+}
 
+.register-button {
+  background-color: #2980b9;
+  font-weight: bold;
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  border-radius: 2px;
+  color: white;
+}
+
+.register-back-button {
+  background-color: rgba(117, 190, 218, 0.0);
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 33%;
+  font-weight: bold;
 }

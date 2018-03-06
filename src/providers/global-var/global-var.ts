@@ -8,6 +8,6 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class GlobalVarProvider {
-  public cartState:array = [];
+  public cartState:any = [];
   public currentUser:any = null;
 }

@@ -15,6 +15,16 @@ export class RestProvider {
   constructor(public http: HttpClient, public globalVar: GlobalVarProvider) {
   }
 
+  addUser({ name, firstname, phone, mail }) {
+    return new Promise(resolve => {
+      this.http.put(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { name: name, firstname: firstname, phone: phone, mail: mail }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   getProducts() {
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/products.json').subscribe(data => {
