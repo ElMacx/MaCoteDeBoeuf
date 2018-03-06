@@ -18,9 +18,6 @@ export class PromotionsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PromotionsPage');
-  }
   openCartPage() {
     this.navCtrl.push(CartPage);
   }

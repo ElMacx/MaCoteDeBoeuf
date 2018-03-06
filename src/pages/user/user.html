@@ -11,6 +11,19 @@
 
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding class="page-user">
+  <ion-item class="input-text">
+    <ion-label floating>Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+  <ion-item class="input-text">
+    <ion-label floating>Prénom</ion-label>
+    <ion-input type="text" [(ngModel)]="user.firstname"></ion-input>
+  </ion-item>
+  <ion-item class="input-text">
+    <ion-label floating>Téléphone</ion-label>
+    <ion-input type="text" [(ngModel)]="user.phone"></ion-input>
+  </ion-item>
+  <button (click)="saveUserInfo();">Sauvegarder</button>
+  <button (click)="disconnectUser();">Se déconnecter</button>
 </ion-content>

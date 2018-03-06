@@ -23,7 +23,7 @@ export class ProductsPage {
 
   truncateText(text, length) {
     var truncated = text;
-    
+
     if (truncated.length > length) {
         truncated = truncated.substr(0, length) + '...';
     }
@@ -37,7 +37,7 @@ export class ProductsPage {
   }
 
   goToProduct(product) {
-    this.navCtrl.push(ProductPage, product);
+    this.navCtrl.push(ProductPage, { product: product, showAdd: true });
   }
 
   openCartPage() {

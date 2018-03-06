@@ -1,20 +1,25 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Mon panier</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
+<ion-content padding class="page-cart">
   <ion-list inset>
       <ion-item *ngFor="let item of currentCart">
         <button (click)="goToProduct(product);">
-          <h2>{{item.product.name}}</h2>
-          <p>{{item.qty}}</p>
+          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">
+          <div style="text-align: left;">
+            <h2>{{truncateText(item.product.name, 20)}}</h2>
+            <p>{{truncateText(item.product.description, 30)}}</p>
+            <p>Origine : {{item.product.origin}}</p>
+            <p>Maturation : {{item.product.maturation}}</p>
+            <p>Prix : {{item.product.price}}€/kg</p>
+            <p>Quanité : {{item.qty}}</p>
+          </div>
         </button>
       </ion-item>
     </ion-list>
-  <button ion-button round (click)="presentConfirm();">Valider la commande</button>
+    <div style="text-align: center; margin-top: 50px;">
+      <button class="confirm-order" (click)="presentConfirm();">Valider la commande</button>
+    </div>
 </ion-content>

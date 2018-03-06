@@ -30,6 +30,14 @@ export class CartPage {
     this.navCtrl.push(ProductPage, product);
   }
 
+  truncateText(text, length) {
+    var truncated = text;
+    if (truncated.length > length) {
+        truncated = truncated.substr(0, length) + '...';
+    }
+    return truncated;
+  }
+
   presentConfirm() {
   let alert = this.alerCtrl.create({
     title: 'Confirmation de commande',

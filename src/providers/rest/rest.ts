@@ -25,6 +25,26 @@ export class RestProvider {
     });
   }
 
+  getUser() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  patchUser({ name, firstname, phone }) {
+    return new Promise(resolve => {
+      this.http.patch(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { name: name, firstname: firstname, phone: phone}).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   getProducts() {
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/products.json').subscribe(data => {

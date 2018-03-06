@@ -10,9 +10,11 @@ import { CartPage } from '../cart/cart';
 export class ProductPage {
 
   product:any;
+  showAdd:any;
   qty = 1;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-    this.product = this.navParams.data;
+    this.product = this.navParams.data.product;
+    this.showAdd = this.navParams.data.showAdd;
   }
 
   addToCart() {

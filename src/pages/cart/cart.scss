@@ -1,3 +1,17 @@
-page-cart {
+.page-cart {
+  background-image: url('../../assets/imgs/bg.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  flex: 1;
+  flex-direction: column;
+}
 
+.confirm-order {
+  background-color: #2980b9;
+  font-weight: bold;
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  border-radius: 2px;
+  color: white;
 }

@@ -8,7 +8,6 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding class="page-product">
   <div class="data-container">
     <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="100" height="100">
@@ -21,7 +20,7 @@
       <ion-input class="input-number-product" type="number" placeholder="Quantité" [(ngModel)]="qty" min="1"></ion-input>
     </div>
   </div>
-  <div style="text-align: center; margin-top: 50px;">
+  <div ng-if="showAdd" style="text-align: center; margin-top: 50px;">
     <button class="add-to-cart-button" (click)="addToCart();">Ajoutez au panier</button>
   </div>
 </ion-content>

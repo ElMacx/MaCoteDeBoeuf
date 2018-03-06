@@ -26,13 +26,13 @@ export class OrdersPage {
 
   getOrders() {
     this.restProvider.getOrders().then((data) => {
-      data.forEach((elem) => {
-        if (elem.state != 4) {
-          this.onGoingOrders.push(elem);
-        } else {
-          this.finishedOrders.push(elem);
-        }
-      })
+      // data.forEach((elem) => {
+      //   if (elem.state != 4) {
+      //     this.onGoingOrders.push(elem);
+      //   } else {
+      //     this.finishedOrders.push(elem);
+      //   }
+      // })
     })
   }
 
@@ -72,7 +72,7 @@ export class OrdersPage {
   }
 
   openOrder(order) {
-    this.navCtrl.push(OrderPage, { order: order.productList });
+    this.navCtrl.push(OrderPage, { order: order.productList, id: order.id });
   }
 
 }

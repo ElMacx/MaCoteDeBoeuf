@@ -1,20 +1,19 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Ma commande</ion-title>
+    <ion-title>Ma commande n°{{truncateText(id, 10)}}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
+<ion-content padding class="page-order">
   <ion-list inset>
       <ion-item *ngFor="let item of order">
-        <button>
-          <h2>{{item.name}}</h2>
-          <p>{{item.description}}</p>
-          <p>{{item.price}}</p>
-          <p>{{item.qty}}</p>
+        <button (click)="goToProduct(item);">
+          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">
+          <div style="text-align: left;">
+            <h2>{{item.name}}</h2>
+            <p>{{truncateText(item.description, 30)}}</p>
+            <p>Prix : {{item.price}}€/kg</p>
+            <p>Quantité : {{item.qty}}</p>
+          </div>
         </button>
       </ion-item>
     </ion-list>
