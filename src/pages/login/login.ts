@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
+import { GlobalVarProvider } from '../../providers/global-var/global-var';
 
 /**
  * Generated class for the LoginPage page.
@@ -18,13 +19,14 @@ export class LoginPage {
 
   email:any;
   password:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public globalVar: GlobalVarProvider) {
     this.email = "maximedulin@gmail.com";
     this.password = "Maxous31";
   }
 
   doConnectUser() {
       const result = firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
+        this.globalVar.currentUser = user;
         this.navCtrl.setRoot(TabsPage);
       }).catch((error) => {
         this.presentConfirm(error.message)

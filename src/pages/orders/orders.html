@@ -13,5 +13,13 @@
 
 
 <ion-content padding>
-
+  <ion-list inset>
+      <ion-item *ngFor="let item of orders">
+        <button (click)="openOrder(item);">
+          <h2>Commande n°{{item.id}}</h2>
+          <p>{{item.state}}</p>
+          <p>{{item.totalPrice}}</p>
+        </button>
+      </ion-item>
+    </ion-list>
 </ion-content>

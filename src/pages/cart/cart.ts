@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { OrdersPage } from '../orders/orders'
+import { GlobalVarProvider } from '../../providers/global-var/global-var';
+import { ProductPage } from '../product/product';
 
 @Component({
   selector: 'page-cart',
@@ -8,19 +9,27 @@ import { OrdersPage } from '../orders/orders'
 })
 export class CartPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
+  currentCart:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController, public globalVar: GlobalVarProvider) {
     //this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
+    if (this.navParams.data.product) {
+      this.globalVar.cartState.push(this.navParams.data);
+    }
+    this.currentCart = this.globalVar.cartState;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
-  }
   ionViewWillEnter() {
     //this.tabBarElement.style.display = 'none';
   }
+
   ionViewWillLeave() {
     //this.tabBarElement.style.display = 'flex';
   }
+
+  goToProduct(product) {
+    this.navCtrl.push(ProductPage, product);
+  }
+
   presentConfirm() {
   let alert = this.alerCtrl.create({
     title: 'Confirmation de commande',

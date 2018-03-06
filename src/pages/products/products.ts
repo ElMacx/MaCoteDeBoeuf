@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartPage } from '../cart/cart';
 import { RestProvider } from '../../providers/rest/rest';
-
+import { ProductPage } from '../product/product';
 /**
  * Generated class for the ProductsPage page.
  *
@@ -21,16 +21,14 @@ export class ProductsPage {
     this.getProducts();
   }
 
-  ionViewDidLoad() {
-
+  getProducts() {
+    this.restProvider.getProducts().then(data => {
+      this.products = data;
+    });
   }
 
-  getProducts() {
-    this.restProvider.getProducts()
-    .then(data => {
-      this.products = data;
-      console.log(this.users);
-    });
+  goToProduct(product) {
+    this.navCtrl.push(ProductPage, product);
   }
 
   openCartPage() {

@@ -1,13 +1,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cart</ion-title>
+    <ion-title>Mon panier</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <span>Liste des produits dans le panier</span>
+  <ion-list inset>
+      <ion-item *ngFor="let item of currentCart">
+        <button (click)="goToProduct(product);">
+          <h2>{{item.product.name}}</h2>
+          <p>{{item.qty}}</p>
+        </button>
+      </ion-item>
+    </ion-list>
   <button ion-button round (click)="presentConfirm();">Valider la commande</button>
 </ion-content>

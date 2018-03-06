@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Les produits</ion-title>
+    <ion-buttons end>
+      <button (click)="openCartPage();">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{product.name}}</h2>
+  <p>{{product.description}}</p>
+  <ion-input type="number" placeholder="Quantité" [(ngModel)]="qty" min="1"></ion-input>
+  <button ion-button round (click)="addToCart();">Ajoutez au panier</button>
+</ion-content>
