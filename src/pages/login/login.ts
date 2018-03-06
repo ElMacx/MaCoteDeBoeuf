@@ -19,12 +19,8 @@ export class LoginPage {
   email:any;
   password:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-    this.email = "";
-    this.password = "";
-  }
-
-  ionViewDidLoad() {
-
+    this.email = "maximedulin@gmail.com";
+    this.password = "Maxous31";
   }
 
   doConnectUser() {
@@ -34,11 +30,9 @@ export class LoginPage {
         this.presentConfirm(error.message)
       });
   }
-
   registerUser() {
     this.navCtrl.push(RegisterPage);
   }
-
   presentConfirm(msg) {
     let alert = this.alertCtrl.create({
         title: 'Erreur',

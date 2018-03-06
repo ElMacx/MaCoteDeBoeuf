@@ -23,10 +23,6 @@ export class RegisterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
-  }
-
   doRegister() {
     if (this.password != this.confirmPass) {
       this.presentConfirm('Les mots de passe ne correspondent pas')

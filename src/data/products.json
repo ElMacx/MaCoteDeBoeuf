@@ -1,0 +1,35 @@
+{
+  "products": {
+    "da8ee38d61af4b5c9f858a68c868da0a": {
+      "name": "Cote de Boeuf 1",
+      "id": "da8ee38d61af4b5c9f858a68c868da0a",
+      "description": "Description de la cote de Boeuf",
+      "img": ""
+    },
+    "782478d4e1824282ad29176c5ac1b3c6": {
+      "name": "Cote de Boeuf 2",
+      "id": "782478d4e1824282ad29176c5ac1b3c6",
+      "description": "Description de la cote de Boeuf",
+      "img": ""
+    },
+    "a3d7877793694bbaa615067bb313516d": {
+      "name": "Cote de Boeuf 3",
+      "id": "a3d7877793694bbaa615067bb313516d",
+      "description": "Description de la cote de Boeuf",
+      "img": ""
+    }
+  },
+  "orders": {
+    "6c5bbd8351b94d27a3059a855dd1bb8a": {
+      "id": "6c5bbd8351b94d27a3059a855dd1bb8a",
+      "userId": "f54e01d7ce9047b28fd7ca24d861f889",
+      "productList": [{
+          "id": "da8ee38d61af4b5c9f858a68c868da0a",
+          "qty": 2
+        }, {
+          "id": "a3d7877793694bbaa615067bb313516d",
+          "qty": 4
+      }]
+    }
+  }
+}

@@ -12,5 +12,10 @@
 
 
 <ion-content padding>
-
+  <ion-list inset>
+      <ion-item *ngFor="let product of products">
+        <h2>{{product.name}}</h2>
+        <p>{{product.description}}</p>
+      </ion-item>
+    </ion-list>
 </ion-content>
