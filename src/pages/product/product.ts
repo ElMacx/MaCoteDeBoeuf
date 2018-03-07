@@ -40,8 +40,8 @@ export class ProductPage {
           {
             text: 'Oui',
             handler: () => {
-              console.log('Ajout de ' + this.qty + ' au panier');
-              this.navCtrl.push(CartPage, { product: this.product, qty: this.qty });
+              this.product.qty = this.qty;
+              this.navCtrl.push(CartPage, this.product);
             }
           }
         ]

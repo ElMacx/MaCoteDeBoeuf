@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Les produits</ion-title>
+    <ion-title>Produit</ion-title>
     <ion-buttons end>
       <button class="cart-icon" (click)="openCartPage();">
         <ion-icon name="cart"></ion-icon>
@@ -20,7 +20,7 @@
       <ion-input class="input-number-product" type="number" placeholder="Quantité" [(ngModel)]="qty" min="1"></ion-input>
     </div>
   </div>
-  <div ng-if="showAdd" style="text-align: center; margin-top: 50px;">
+  <div *ngIf="showAdd" style="text-align: center; margin-top: 50px;">
     <button class="add-to-cart-button" (click)="addToCart();">Ajoutez au panier</button>
   </div>
 </ion-content>

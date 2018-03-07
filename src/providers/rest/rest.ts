@@ -64,4 +64,14 @@ export class RestProvider {
       });
     });
   }
+
+  patchOrders(order) {
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+'/orders/' + this.globalVar.currentUser.uid + '.json', order).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

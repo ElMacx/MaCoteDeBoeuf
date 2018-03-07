@@ -5,3 +5,25 @@
   flex: 1;
   flex-direction: column;
 }
+
+.save-button {
+  background-color: #2980b9;
+  font-weight: bold;
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  border-radius: 2px;
+  color: white;
+}
+
+.disconnect-button {
+  background-color: rgba(117, 190, 218, 0.0);
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 33%;
+  font-weight: bold;
+}

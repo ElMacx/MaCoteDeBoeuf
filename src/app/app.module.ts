@@ -40,7 +40,7 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, { tabsHideOnSubPages: true })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

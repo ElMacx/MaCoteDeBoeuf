@@ -21,18 +21,44 @@ export class OrdersPage {
   onGoingOrders = [];
   finishedOrders = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVar: GlobalVarProvider, public restProvider: RestProvider) {
+  }
+
+  ionViewDidEnter() {
+    this.onGoingOrders = [];
+    this.finishedOrders = [];
     this.getOrders();
   }
 
   getOrders() {
     this.restProvider.getOrders().then((data) => {
-      // data.forEach((elem) => {
-      //   if (elem.state != 4) {
-      //     this.onGoingOrders.push(elem);
-      //   } else {
-      //     this.finishedOrders.push(elem);
-      //   }
-      // })
+      if (data) {
+        Object.keys(data).map((g, i) => {
+            data[ g ].id = g;
+            if (data[ g ].state != 4) {
+              this.onGoingOrders.push(data[ g ]);
+            } else {
+              this.finishedOrders.push(data[ g ]);
+            }
+        })
+      }
+    })
+  }
+
+  doRefresh(refresher) {
+    this.onGoingOrders = [];
+    this.finishedOrders = [];
+    this.restProvider.getOrders().then((data) => {
+      if (data) {
+        Object.keys(data).map((g, i) => {
+            data[ g ].id = g;
+            if (data[ g ].state != 4) {
+              this.onGoingOrders.push(data[ g ]);
+            } else {
+              this.finishedOrders.push(data[ g ]);
+            }
+        })
+        refresher.complete();
+      }
     })
   }
 
@@ -46,7 +72,7 @@ export class OrdersPage {
         ret = "Commande en cours de préparation";
         break;
       case 3:
-        ret = "Commande à venir récupérée";
+        ret = "Commande à venir récupérer";
         break;
       case 4:
         ret = "Commande terminée";
@@ -60,8 +86,7 @@ export class OrdersPage {
 
   truncateText(text, length) {
     var truncated = text;
-
-    if (truncated.length > length) {
+    if (truncated && truncated.length > length) {
         truncated = truncated.substr(0, length) + '...';
     }
     return truncated;

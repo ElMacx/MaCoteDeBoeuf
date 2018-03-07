@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { CartPage } from '../cart/cart';
 import { RestProvider } from '../../providers/rest/rest';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-user',
@@ -25,14 +26,18 @@ export class UserPage {
   }
 
   saveUserInfo() {
-    this.restProvider.patchUser({ name: this.user.name, firstname: this.user.firstname, phone: this.user.phone }).then((user) => {
+    this.restProvider.patchUser({
+      name: this.user.name,
+      firstname: this.user.firstname,
+      phone: this.user.phone
+    }).then((user) => {
       this.presentConfirm()
     })
   }
 
   presentConfirm() {
     let alert = this.alertCtrl.create({
-        title: 'Fait',
+        title: 'Succès',
         subTitle: "Vos informations ont été changées avec succès !",
         buttons: ['Ok']
       });
@@ -40,6 +45,8 @@ export class UserPage {
   }
 
   disconnectUser() {
-
+    firebase.auth().signOut().then(() => {
+      this.navCtrl.push(LoginPage, {}, { animate: true, animation: "ios-animation" });
+    });
   }
 }

@@ -24,6 +24,8 @@
     <ion-label floating>Téléphone</ion-label>
     <ion-input type="text" [(ngModel)]="user.phone"></ion-input>
   </ion-item>
-  <button (click)="saveUserInfo();">Sauvegarder</button>
-  <button (click)="disconnectUser();">Se déconnecter</button>
+  <div style="text-align: center; margin-top: 50px;">
+    <button class="save-button" (click)="saveUserInfo();">Sauvegarder</button>
+  </div>
+  <button class="disconnect-button" (click)="disconnectUser();">Se déconnecter</button>
 </ion-content>

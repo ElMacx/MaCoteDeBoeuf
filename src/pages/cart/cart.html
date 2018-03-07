@@ -9,17 +9,17 @@
         <button (click)="goToProduct(product);">
           <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">
           <div style="text-align: left;">
-            <h2>{{truncateText(item.product.name, 20)}}</h2>
-            <p>{{truncateText(item.product.description, 30)}}</p>
-            <p>Origine : {{item.product.origin}}</p>
-            <p>Maturation : {{item.product.maturation}}</p>
-            <p>Prix : {{item.product.price}}€/kg</p>
+            <h2>{{truncateText(item.name, 20)}}</h2>
+            <p>{{truncateText(item.description, 30)}}</p>
+            <p>Origine : {{item.origin}}</p>
+            <p>Maturation : {{item.maturation}}</p>
+            <p>Prix : {{item.price}}€/kg</p>
             <p>Quanité : {{item.qty}}</p>
           </div>
         </button>
       </ion-item>
     </ion-list>
-    <div style="text-align: center; margin-top: 50px;">
+    <div *ngIf="currentCart.length > 0"style="text-align: center; margin-top: 50px;">
       <button class="confirm-order" (click)="presentConfirm();">Valider la commande</button>
     </div>
 </ion-content>
