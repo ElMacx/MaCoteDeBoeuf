@@ -85,9 +85,9 @@ export class RestProvider {
     });
   }
 
-  getPromotions(order) {
+  getPromotions() {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/promotions/.json').subscribe(data => {
+      this.http.get(this.apiUrl+'/promotions.json').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

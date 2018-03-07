@@ -16,7 +16,7 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class PromotionsPage {
 
-  promotions = [];
+  promotions = <any>[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
   }
 

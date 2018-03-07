@@ -18,9 +18,11 @@ export class TabsPage {
   tab3Root = OrdersPage;
   tab4Root = UserPage;
 
+  tmpUser = <any>{};
   constructor(public alertCtrl: AlertController, public restProvider: RestProvider, public globalVar: GlobalVarProvider) {
     this.restProvider.getUser().then((user) => {
-      if (user.displayPopUp) {
+      this.tmpUser = user;
+      if (this.tmpUser.displayPopUp) {
         this.presentInformation();
       }
     })
