@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { GlobalVarProvider } from '../../providers/global-var/global-var';
 import { ProductPage } from '../product/product';
 import { RestProvider } from '../../providers/rest/rest';
@@ -12,19 +12,18 @@ export class CartPage {
 
   currentCart = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController, public restProvider: RestProvider, public globalVar: GlobalVarProvider) {
-  }
-
-  ionViewDidEnter() {
-    this.currentCart = [];
-    this.globalVar.cartState = [];
     if (this.navParams.data.id) {
       this.globalVar.cartState.push(this.navParams.data);
     }
+  }
+
+  ionViewDidEnter() {
+    console.log(this.globalVar.cartState);
     this.currentCart = this.globalVar.cartState;
   }
 
   goToProduct(product) {
-    this.navCtrl.push(ProductPage, product);
+    this.navCtrl.push(ProductPage, { product: product, showAdd: false, cartUpdate: true });
   }
 
   truncateText(text, length) {
@@ -50,6 +49,16 @@ export class CartPage {
     });
   }
 
+  deleteItem(item) {
+    var i = 0;
+    this.currentCart.forEach((elem) => {
+        if (elem.id == item.id) {
+          this.currentCart.splice(i, 1);
+        }
+        i++;
+    });
+  }
+
   presentConfirm() {
   let alert = this.alerCtrl.create({
     title: 'Confirmation de commande',
@@ -61,6 +70,8 @@ export class CartPage {
         text: 'Commander',
         handler: () => {
           this.sendOrder();
+          this.currentCart = [];
+          this.globalVar.cartState = [];
           this.navCtrl.popToRoot()
         }
       }]

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
 import { GlobalVarProvider } from '../../providers/global-var/global-var';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,13 +20,14 @@ export class LoginPage {
 
   email:any;
   password:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public globalVar: GlobalVarProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth,
+    public alertCtrl: AlertController, public globalVar: GlobalVarProvider) {
     this.email = "maximedulin@gmail.com";
     this.password = "Maxous31";
   }
 
   doConnectUser() {
-      const result = firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
+      this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password).then((user) => {
         this.globalVar.currentUser = user;
         this.navCtrl.setRoot(TabsPage, {},  { animate: true, animation: "ios-transition" });
       }).catch((error) => {

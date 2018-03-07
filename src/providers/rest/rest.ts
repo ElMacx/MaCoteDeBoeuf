@@ -17,7 +17,7 @@ export class RestProvider {
 
   addUser({ name, firstname, phone, mail }) {
     return new Promise(resolve => {
-      this.http.put(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { name: name, firstname: firstname, phone: phone, mail: mail }).subscribe(data => {
+      this.http.put(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { name: name, firstname: firstname, phone: phone, mail: mail, displayPopUp: true }).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -37,7 +37,17 @@ export class RestProvider {
 
   patchUser({ name, firstname, phone }) {
     return new Promise(resolve => {
-      this.http.patch(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { name: name, firstname: firstname, phone: phone}).subscribe(data => {
+      this.http.patch(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { name: name, firstname: firstname, phone: phone }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  patchUserPopUp() {
+    return new Promise(resolve => {
+      this.http.patch(this.apiUrl+'/users/' + this.globalVar.currentUser.uid + '.json', { displayPopUp: false }).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -68,6 +78,16 @@ export class RestProvider {
   patchOrders(order) {
     return new Promise(resolve => {
       this.http.post(this.apiUrl+'/orders/' + this.globalVar.currentUser.uid + '.json', order).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  getPromotions(order) {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/promotions/.json').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

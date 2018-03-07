@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { CartPage } from '../cart/cart';
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 @Component({
   selector: 'page-user',
@@ -10,8 +12,9 @@ import { LoginPage } from '../login/login';
 })
 export class UserPage {
 
-  user = {};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public alertCtrl: AlertController) {
+  user = <any>{};
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth,
+    public restProvider: RestProvider, public alertCtrl: AlertController) {
     this.getUser();
   }
 
@@ -45,7 +48,7 @@ export class UserPage {
   }
 
   disconnectUser() {
-    firebase.auth().signOut().then(() => {
+    this.afAuth.auth.signOut().then(() => {
       this.navCtrl.push(LoginPage, {}, { animate: true, animation: "ios-animation" });
     });
   }

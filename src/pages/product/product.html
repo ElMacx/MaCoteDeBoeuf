@@ -16,11 +16,14 @@
     <div class="p-style">
       <p>Prix : {{product.price}}€/kg</p>
       <p>Maturation : {{product.maturation}}</p>
-      <label>Quantité : </label>
+      <label>Nombre de personne(s) : </label>
       <ion-input class="input-number-product" type="number" placeholder="Quantité" [(ngModel)]="qty" min="1"></ion-input>
     </div>
   </div>
   <div *ngIf="showAdd" style="text-align: center; margin-top: 50px;">
     <button class="add-to-cart-button" (click)="addToCart();">Ajoutez au panier</button>
+  </div>
+  <div *ngIf="cartUpdate" style="text-align: center; margin-top: 50px;">
+    <button class="add-to-cart-button" (click)="updateCart();">Mettre à jour la commande</button>
   </div>
 </ion-content>

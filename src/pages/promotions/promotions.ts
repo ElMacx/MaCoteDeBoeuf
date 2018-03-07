@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { CartPage } from '../cart/cart'
+import { RestProvider } from '../../providers/rest/rest';
 
 /**
  * Generated class for the PromotionsPage page.
@@ -15,7 +16,19 @@ import { CartPage } from '../cart/cart'
 })
 export class PromotionsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  promotions = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+  }
+
+  ionViewDidEnter() {
+    this.promotions = [];
+    this.getPromotions();
+  }
+
+  getPromotions() {
+    this.restProvider.getPromotions().then((data) => {
+      this.promotions = data;
+    })
   }
 
   openCartPage() {
