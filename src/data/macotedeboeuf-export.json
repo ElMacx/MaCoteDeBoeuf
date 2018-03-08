@@ -72,17 +72,20 @@
       "phone" : "0682870479"
     }
   },
-  "promotions": [{
+  "promotions": {
+    "f2b0b761fa614e15878be2370df0c79f": {
       "title": "Saucisse de Toulouse",
       "price": 9.90,
       "daterange": "25/03/2018"
-    }, {
+    },
+    "9245e29c7d284b3aac9d716245eda654": {
       "title": "Cote de porc dans l'échine",
       "price": 7.90,
       "daterange": "30/03/2018"
-    }, {
+    },
+    "a27e762b118e47ad8e8e0a2feb24f97d": {
       "title": "Roti de porc",
       "price": 7.90,
       "daterange": "05/12/18"
-    }]
+    }}
 }

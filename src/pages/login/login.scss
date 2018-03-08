@@ -1,9 +1,5 @@
 .page-login {
-  background-color: #e74c3c;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  flex: 1;
-  flex-direction: column;
+  background-image:radial-gradient(#EC4A31, #B2332A);
 }
 
 .login-body {
@@ -16,13 +12,26 @@
 }
 
 .login-button {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 130px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 13px;
+  font-weight: 500;
+  width: 160px;
+  height: 55px;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease 0s;
+}
+
+.login-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
 }
 
 .go-to-register-button {

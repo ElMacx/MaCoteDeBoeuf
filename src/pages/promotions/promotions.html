@@ -13,8 +13,8 @@
 
 
 <ion-content padding class="page-promotions">
-  <ion-list inset>
-    <ion-item *ngFor="let item of promotions">
+  <ion-list no-lines>
+    <ion-item *ngFor="let item of promotions" class="item-design">
       <h2>{{item.title}}</h2>
       <p>Prix : {{item.price}}€/kg</p>
       <p>Date de fin : {{item.daterange}}€</p>

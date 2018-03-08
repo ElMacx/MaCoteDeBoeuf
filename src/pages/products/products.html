@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Les produits</ion-title>
+    <ion-title style="font-family: Roboto;">Les produits</ion-title>
     <ion-buttons end>
       <button class="cart-icon" (click)="openCartPage();">
         <ion-icon name="cart"></ion-icon>
@@ -12,16 +12,15 @@
 
 
 <ion-content padding class="page-products">
-  <ion-list inset>
-      <ion-item *ngFor="let product of products">
-        <button (click)="goToProduct(product);">
+  <ion-list no-lines>
+      <ion-item *ngFor="let product of products" class="item-design">
+        <button style="width: 100%;" (click)="goToProduct(product);">
           <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">
           <div style="text-align: left;">
-            <h2>{{truncateText(product.name, 20)}}</h2>
-            <p>{{truncateText(product.description, 30)}}</p>
+            <h2 style="font-size: 500;">{{truncateText(product.name, 20)}}</h2>
             <p>Origine : {{product.origin}}</p>
-            <p>Maturation : {{product.maturation}}</p>
             <p>Prix : {{product.price}}€/kg</p>
+            <ion-icon class="arrow-icon" name="ios-arrow-dropright"></ion-icon>
           </div>
         </button>
       </ion-item>

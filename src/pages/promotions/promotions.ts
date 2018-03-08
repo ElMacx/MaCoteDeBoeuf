@@ -27,7 +27,9 @@ export class PromotionsPage {
 
   getPromotions() {
     this.restProvider.getPromotions().then((data) => {
-      this.promotions = data;
+      for (var key in data) {
+        this.promotions.push(data[ key ])
+      }
     })
   }
 

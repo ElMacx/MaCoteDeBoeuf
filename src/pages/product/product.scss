@@ -1,5 +1,5 @@
 .page-product {
-  background-color: #c0392b;
+  background-image:radial-gradient(#EC4A31, #B2332A);
 }
 
 .data-container {
@@ -8,24 +8,33 @@
   border-radius: 4px;
 }
 
-p {
-  text-align: justify;
-}
-
 .input-number-product {
   width: 40px;
   display: inline-block;
   text-align: right;
 }
 
+.img-container {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
 .add-to-cart-button {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 170px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 13px;
+  font-weight: 500;
+  width: 200px;
+  height: 55px;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease 0s;
 }
 
 .p-style {

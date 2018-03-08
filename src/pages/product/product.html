@@ -10,9 +10,11 @@
 </ion-header>
 <ion-content padding class="page-product">
   <div class="data-container">
-    <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="100" height="100">
-    <h2>{{product.name}}</h2>
-    <p>{{product.description}}</p>
+    <div class="img-container">
+      <img class="img-circle" src="../../assets/imgs/boeuf.jpg" width="100" height="100">
+    </div>
+    <h2 style="text-align: center;">{{product.name}}</h2>
+    <p style="text-align: justify;">{{product.description}}</p>
     <div class="p-style">
       <p>Prix : {{product.price}}€/kg</p>
       <p>Maturation : {{product.maturation}}</p>
@@ -21,7 +23,7 @@
     </div>
   </div>
   <div *ngIf="showAdd" style="text-align: center; margin-top: 50px;">
-    <button class="add-to-cart-button" (click)="addToCart();">Ajoutez au panier</button>
+    <button class="add-to-cart-button" (click)="addToCart();">Ajouter au panier</button>
   </div>
   <div *ngIf="cartUpdate" style="text-align: center; margin-top: 50px;">
     <button class="add-to-cart-button" (click)="updateCart();">Mettre à jour la commande</button>
