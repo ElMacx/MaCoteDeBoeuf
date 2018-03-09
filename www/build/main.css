@@ -25682,8 +25682,14 @@ ion-navbar.toolbar {
   background-image: radial-gradient(#EC4A31, #B2332A);
 }
 
+.login-picture {
+  position: absolute;
+  left: 120px;
+  top: 60px;
+}
+
 .login-body {
-  margin-top: 180px;
+  margin-top: 230px;
 }
 
 .input-text {
@@ -25698,10 +25704,10 @@ ion-navbar.toolbar {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   border-radius: 45px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   width: 160px;
-  height: 55px;
+  height: 45px;
   border: none;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -25710,7 +25716,7 @@ ion-navbar.toolbar {
   transition: all 0.3s ease 0s;
 }
 
-.login-button:hover {
+.login-button:active {
   background-color: #2EE59D;
   -webkit-box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -25760,13 +25766,40 @@ ion-navbar.toolbar {
 }
 
 .confirm-order {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 130px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 200px;
+  height: 50px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.go-to-products-button {
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 180px;
+  height: 45px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-top: 50%;
 }
 
 .page-order {
@@ -25818,16 +25851,31 @@ ion-navbar.toolbar {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   border-radius: 45px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
-  width: 200px;
-  height: 55px;
+  width: 180px;
+  height: 45px;
   border: none;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   outline: none;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+}
+
+.update-order-button {
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 180px;
+  height: 45px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .p-style {
@@ -25843,6 +25891,14 @@ ion-navbar.toolbar {
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+}
+
+.gray-background:active {
+  background-color: #ecf0f1;
+}
+
+.list-item-button:active {
+  background-color: #ecf0f1;
 }
 
 .item-img {
@@ -25873,18 +25929,33 @@ ion-navbar.toolbar {
   background-color: #c0392b;
 }
 
+.price-item {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+}
+
 .page-user {
   background-color: #c0392b;
 }
 
 .save-button {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 130px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 13px;
+  font-weight: 500;
+  width: 160px;
+  height: 55px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .disconnect-button {
@@ -25908,21 +25979,54 @@ p {
 }
 
 .confirm-order {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 130px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 200px;
+  height: 50px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.go-to-products-button {
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 180px;
+  height: 45px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-top: 50%;
 }
 
 .page-login {
   background-image: radial-gradient(#EC4A31, #B2332A);
 }
 
+.login-picture {
+  position: absolute;
+  left: 120px;
+  top: 60px;
+}
+
 .login-body {
-  margin-top: 180px;
+  margin-top: 230px;
 }
 
 .input-text {
@@ -25937,10 +26041,10 @@ p {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   border-radius: 45px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   width: 160px;
-  height: 55px;
+  height: 45px;
   border: none;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -25949,7 +26053,7 @@ p {
   transition: all 0.3s ease 0s;
 }
 
-.login-button:hover {
+.login-button:active {
   background-color: #2EE59D;
   -webkit-box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -26017,16 +26121,31 @@ p {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   border-radius: 45px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
-  width: 200px;
-  height: 55px;
+  width: 180px;
+  height: 45px;
   border: none;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   outline: none;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+}
+
+.update-order-button {
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 180px;
+  height: 45px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .p-style {
@@ -26042,6 +26161,14 @@ p {
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+}
+
+.gray-background:active {
+  background-color: #ecf0f1;
+}
+
+.list-item-button:active {
+  background-color: #ecf0f1;
 }
 
 .item-img {
@@ -26070,6 +26197,12 @@ p {
 
 .page-promotions {
   background-color: #c0392b;
+}
+
+.price-item {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
 }
 
 .page-register {
@@ -26103,13 +26236,22 @@ p {
 }
 
 .save-button {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 130px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 13px;
+  font-weight: 500;
+  width: 160px;
+  height: 55px;
+  border: none;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .disconnect-button {

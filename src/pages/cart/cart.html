@@ -4,10 +4,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="page-cart">
-  <ion-list inset canSwipte="true">
-    <ion-item-sliding *ngFor="let item of currentCart">
-      <ion-item>
-        <button (click)="goToProduct(item);">
+  <ion-list no-lines canSwipte="true">
+    <ion-item-sliding *ngFor="let item of currentCart" class="item-design">
+      <ion-item detail-push>
+        <button class="list-item-button" (click)="goToProduct(item);">
           <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">
           <div style="text-align: left;">
             <h2>{{truncateText(item.name, 20)}}</h2>
@@ -17,12 +17,16 @@
           </div>
         </button>
       </ion-item>
-      <ion-item-options side="right">
+      <ion-item-options side="right" class="item-design">
         <button ion-button color="danger" (click)="deleteItem(item);">Supprimer</button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
   <div *ngIf="currentCart.length > 0"style="text-align: center; margin-top: 50px;">
     <button class="confirm-order" (click)="presentConfirm();">Valider la commande</button>
+  </div>
+  <div *ngIf="currentCart.length == 0" style="text-align: center;">
+    <p style="color: white; font-size: 20px;">Votre panier est vide..</p>
+    <button class="go-to-products-button" (click)="goToProducts()">Aller au produits</button>
   </div>
 </ion-content>

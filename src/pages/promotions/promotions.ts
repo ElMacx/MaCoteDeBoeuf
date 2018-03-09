@@ -3,12 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { CartPage } from '../cart/cart'
 import { RestProvider } from '../../providers/rest/rest';
 
-/**
- * Generated class for the PromotionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-promotions',
@@ -31,6 +25,16 @@ export class PromotionsPage {
         this.promotions.push(data[ key ])
       }
     })
+  }
+
+  doRefresh(refresher) {
+    this.promotions = [];
+    this.restProvider.getPromotions().then((data) => {
+      for (var key in data) {
+        this.promotions.push(data[ key ])
+      }
+      refresher.complete();
+      })
   }
 
   openCartPage() {

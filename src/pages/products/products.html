@@ -13,14 +13,12 @@
 
 <ion-content padding class="page-products">
   <ion-list no-lines>
-      <ion-item *ngFor="let product of products" class="item-design">
-        <button style="width: 100%;" (click)="goToProduct(product);">
-          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">
+      <ion-item detail-push *ngFor="let product of products" class="item-design gray-background">
+        <button style="width: 100%;" class="gray-background" (click)="goToProduct(product);">
+          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="35" height="35">
           <div style="text-align: left;">
-            <h2 style="font-size: 500;">{{truncateText(product.name, 20)}}</h2>
-            <p>Origine : {{product.origin}}</p>
+            <h2 style="font-size: 500;">{{truncateText(product.name, 25)}}</h2>
             <p>Prix : {{product.price}}€/kg</p>
-            <ion-icon class="arrow-icon" name="ios-arrow-dropright"></ion-icon>
           </div>
         </button>
       </ion-item>

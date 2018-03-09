@@ -13,11 +13,19 @@
 
 
 <ion-content padding class="page-promotions">
+  <ion-refresher pulling-text="Tirer pour refraichir" (ionRefresh)="doRefresh($event);">
+    <ion-refresher-content class="page-orders" pullingText="Tirer pour rafraichir" refreshingText="Rafraichissement..." refreshingSpinner="circles"></ion-refresher-content>
+  </ion-refresher>
   <ion-list no-lines>
     <ion-item *ngFor="let item of promotions" class="item-design">
-      <h2>{{item.title}}</h2>
-      <p>Prix : {{item.price}}€/kg</p>
-      <p>Date de fin : {{item.daterange}}€</p>
+      <div>
+        <h2>{{item.title}}</h2>
+        <p>Date de fin : {{item.daterange}}€</p>
+      </div>
+      <div class="price-item">
+        <p style="font-size: 30px; font-weight: bold; color: #000000;">{{item.price}}€</p>
+        <p style="position: absolute; right: -20px; bottom: 5px;">/kg</p>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

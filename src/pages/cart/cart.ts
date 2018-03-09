@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { GlobalVarProvider } from '../../providers/global-var/global-var';
 import { ProductPage } from '../product/product';
+import { ProductsPage } from '../products/products';
 import { RestProvider } from '../../providers/rest/rest';
 
 @Component({
@@ -18,12 +19,15 @@ export class CartPage {
   }
 
   ionViewDidEnter() {
-    console.log(this.globalVar.cartState);
     this.currentCart = this.globalVar.cartState;
   }
 
   goToProduct(product) {
     this.navCtrl.push(ProductPage, { product: product, showAdd: false, cartUpdate: true });
+  }
+
+  goToProducts() {
+    this.navCtrl.setRoot(ProductsPage, {}, { animate: true, animation: "ios-transition" });
   }
 
   truncateText(text, length) {

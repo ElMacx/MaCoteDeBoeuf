@@ -9,28 +9,31 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="page-orders">
-  <!-- <ion-refresher class="page-orders" pulling-text="Tirer pour refraichir" (ionRefresh)="doRefresh($event);">
-    <ion-refresher-content class="page-orders" pullingTest="Tirer pour rafraichir" refreshingText="Rafraichissement..." refreshingSpinner="circles"></ion-refresher-content>
-  </ion-refresher> -->
+  <ion-refresher class="" pulling-text="Tirer pour refraichir" (ionRefresh)="doRefresh($event);">
+    <ion-refresher-content class="page-orders" pullingText="Tirer pour rafraichir" refreshingText="Rafraichissement..." refreshingSpinner="circles"></ion-refresher-content>
+  </ion-refresher>
   <ion-list inset>
     <ion-list-header class="item-header">
       En cours
     </ion-list-header>
-    <ion-item *ngFor="let item of onGoingOrders" class="item-design">
-      <button (click)="openOrder(item);">
-        <h2>Commande n°{{truncateText(item.id, 14)}}</h2>
-        <p>Etat : {{truncateText(displayState(item.state), 32)}}</p>
-        <p>Prix : {{item.totalPrice}}€</p>
+    <ion-item detail-push *ngFor="let item of onGoingOrders" class="item-design">
+      <button class="gray-background" (click)="openOrder(item);">
+        <div style="text-align: left;">
+          <h2>Commande n°{{truncateText(item.id, 10)}}</h2>
+          <p><strong>Etat : </strong>{{truncateText(displayState(item.state), 25)}}</p>
+          <p><strong>Prix : </strong>{{item.totalPrice}}€</p>
+        </div>
       </button>
     </ion-item>
     <ion-list-header class="item-header">
       Terminée(s)
     </ion-list-header>
-    <ion-item *ngFor="let item of finishedOrders" class="item-design">
-      <button (click)="openOrder(item);">
-        <h2>Commande n°{{truncateText(item.id, 14)}}</h2>
-        <p>Etat : {{truncateText(displayState(item.state), 32)}}</p>
-        <p>Prix : {{item.totalPrice}}€</p>
+    <ion-item detail-push *ngFor="let item of finishedOrders" class="item-design">
+      <button class="gray-background" (click)="openOrder(item);">
+        <div style="text-align: left;">
+          <h2>Commande n°{{truncateText(item.id, 14)}}</h2>
+          <p><strong>Prix : </strong>{{item.totalPrice}}€</p>
+        </div>
       </button>
     </ion-item>
   </ion-list>

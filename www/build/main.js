@@ -172,11 +172,12 @@ var ProductsPage = (function () {
     };
     ProductsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-products',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/products/products.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title style="font-family: Roboto;">Les produits</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-products">\n  <ion-list no-lines>\n      <ion-item *ngFor="let product of products" class="item-design">\n        <button style="width: 100%;" (click)="goToProduct(product);">\n          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">\n          <div style="text-align: left;">\n            <h2 style="font-size: 500;">{{truncateText(product.name, 20)}}</h2>\n            <p>Origine : {{product.origin}}</p>\n            <p>Prix : {{product.price}}€/kg</p>\n            <ion-icon class="arrow-icon" name="ios-arrow-dropright"></ion-icon>\n          </div>\n        </button>\n      </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/products/products.html"*/,
+            selector: 'page-products',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/products/products.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title style="font-family: Roboto;">Les produits</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-products">\n  <ion-list no-lines>\n      <ion-item detail-push *ngFor="let product of products" class="item-design gray-background">\n        <button style="width: 100%;" class="gray-background" (click)="goToProduct(product);">\n          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="35" height="35">\n          <div style="text-align: left;">\n            <h2 style="font-size: 500;">{{truncateText(product.name, 25)}}</h2>\n            <p>Prix : {{product.price}}€/kg</p>\n          </div>\n        </button>\n      </ion-item>\n    </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/products/products.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object])
     ], ProductsPage);
     return ProductsPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=products.js.map
@@ -205,12 +206,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the PromotionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var PromotionsPage = (function () {
     function PromotionsPage(navCtrl, navParams, restProvider) {
         this.navCtrl = navCtrl;
@@ -230,12 +225,22 @@ var PromotionsPage = (function () {
             }
         });
     };
+    PromotionsPage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        this.promotions = [];
+        this.restProvider.getPromotions().then(function (data) {
+            for (var key in data) {
+                _this.promotions.push(data[key]);
+            }
+            refresher.complete();
+        });
+    };
     PromotionsPage.prototype.openCartPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__cart_cart__["a" /* CartPage */]);
     };
     PromotionsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-promotions',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/promotions/promotions.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Promotions</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-promotions">\n  <ion-list no-lines>\n    <ion-item *ngFor="let item of promotions" class="item-design">\n      <h2>{{item.title}}</h2>\n      <p>Prix : {{item.price}}€/kg</p>\n      <p>Date de fin : {{item.daterange}}€</p>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/promotions/promotions.html"*/,
+            selector: 'page-promotions',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/promotions/promotions.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Promotions</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="page-promotions">\n  <ion-refresher pulling-text="Tirer pour refraichir" (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content class="page-orders" pullingText="Tirer pour rafraichir" refreshingText="Rafraichissement..." refreshingSpinner="circles"></ion-refresher-content>\n  </ion-refresher>\n  <ion-list no-lines>\n    <ion-item *ngFor="let item of promotions" class="item-design">\n      <div>\n        <h2>{{item.title}}</h2>\n        <p>Date de fin : {{item.daterange}}€</p>\n      </div>\n      <div class="price-item">\n        <p style="font-size: 30px; font-weight: bold; color: #000000;">{{item.price}}€</p>\n        <p style="position: absolute; right: -20px; bottom: 5px;">/kg</p>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/promotions/promotions.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]) === "function" && _c || Object])
     ], PromotionsPage);
@@ -364,12 +369,11 @@ var OrdersPage = (function () {
     };
     OrdersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-orders',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/orders/orders.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Mes commandes</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding class="page-orders">\n  <!-- <ion-refresher class="page-orders" pulling-text="Tirer pour refraichir" (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content class="page-orders" pullingTest="Tirer pour rafraichir" refreshingText="Rafraichissement..." refreshingSpinner="circles"></ion-refresher-content>\n  </ion-refresher> -->\n  <ion-list inset>\n    <ion-list-header class="item-header">\n      En cours\n    </ion-list-header>\n    <ion-item *ngFor="let item of onGoingOrders" class="item-design">\n      <button (click)="openOrder(item);">\n        <h2>Commande n°{{truncateText(item.id, 14)}}</h2>\n        <p>Etat : {{truncateText(displayState(item.state), 32)}}</p>\n        <p>Prix : {{item.totalPrice}}€</p>\n      </button>\n    </ion-item>\n    <ion-list-header class="item-header">\n      Terminée(s)\n    </ion-list-header>\n    <ion-item *ngFor="let item of finishedOrders" class="item-design">\n      <button (click)="openOrder(item);">\n        <h2>Commande n°{{truncateText(item.id, 14)}}</h2>\n        <p>Etat : {{truncateText(displayState(item.state), 32)}}</p>\n        <p>Prix : {{item.totalPrice}}€</p>\n      </button>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/orders/orders.html"*/,
+            selector: 'page-orders',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/orders/orders.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Mes commandes</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding class="page-orders">\n  <ion-refresher class="" pulling-text="Tirer pour refraichir" (ionRefresh)="doRefresh($event);">\n    <ion-refresher-content class="page-orders" pullingText="Tirer pour rafraichir" refreshingText="Rafraichissement..." refreshingSpinner="circles"></ion-refresher-content>\n  </ion-refresher>\n  <ion-list inset>\n    <ion-list-header class="item-header">\n      En cours\n    </ion-list-header>\n    <ion-item detail-push *ngFor="let item of onGoingOrders" class="item-design">\n      <button class="gray-background" (click)="openOrder(item);">\n        <div style="text-align: left;">\n          <h2>Commande n°{{truncateText(item.id, 10)}}</h2>\n          <p><strong>Etat : </strong>{{truncateText(displayState(item.state), 25)}}</p>\n          <p><strong>Prix : </strong>{{item.totalPrice}}€</p>\n        </div>\n      </button>\n    </ion-item>\n    <ion-list-header class="item-header">\n      Terminée(s)\n    </ion-list-header>\n    <ion-item detail-push *ngFor="let item of finishedOrders" class="item-design">\n      <button class="gray-background" (click)="openOrder(item);">\n        <div style="text-align: left;">\n          <h2>Commande n°{{truncateText(item.id, 14)}}</h2>\n          <p><strong>Prix : </strong>{{item.totalPrice}}€</p>\n        </div>\n      </button>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/orders/orders.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_global_var_global_var__["a" /* GlobalVarProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_global_var_global_var__["a" /* GlobalVarProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_global_var_global_var__["a" /* GlobalVarProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */]])
     ], OrdersPage);
     return OrdersPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=orders.js.map
@@ -940,7 +944,8 @@ var MyApp = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_global_var_global_var__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__product_product__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__products_products__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(34);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -950,6 +955,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -968,11 +974,13 @@ var CartPage = (function () {
         }
     }
     CartPage.prototype.ionViewDidEnter = function () {
-        console.log(this.globalVar.cartState);
         this.currentCart = this.globalVar.cartState;
     };
     CartPage.prototype.goToProduct = function (product) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__product_product__["a" /* ProductPage */], { product: product, showAdd: false, cartUpdate: true });
+    };
+    CartPage.prototype.goToProducts = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__products_products__["a" /* ProductsPage */], {}, { animate: true, animation: "ios-transition" });
     };
     CartPage.prototype.truncateText = function (text, length) {
         var truncated = text;
@@ -1028,11 +1036,12 @@ var CartPage = (function () {
     };
     CartPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-cart',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/cart/cart.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Mon panier</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding class="page-cart">\n  <ion-list inset canSwipte="true">\n    <ion-item-sliding *ngFor="let item of currentCart">\n      <ion-item>\n        <button (click)="goToProduct(item);">\n          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">\n          <div style="text-align: left;">\n            <h2>{{truncateText(item.name, 20)}}</h2>\n            <p>{{truncateText(item.description, 30)}}</p>\n            <p>Prix : {{item.price}}€/kg</p>\n            <p>Nombre de personne(s) : {{item.qty}}</p>\n          </div>\n        </button>\n      </ion-item>\n      <ion-item-options side="right">\n        <button ion-button color="danger" (click)="deleteItem(item);">Supprimer</button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n  <div *ngIf="currentCart.length > 0"style="text-align: center; margin-top: 50px;">\n    <button class="confirm-order" (click)="presentConfirm();">Valider la commande</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/cart/cart.html"*/,
+            selector: 'page-cart',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/cart/cart.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Mon panier</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding class="page-cart">\n  <ion-list no-lines canSwipte="true">\n    <ion-item-sliding *ngFor="let item of currentCart" class="item-design">\n      <ion-item detail-push>\n        <button class="list-item-button" (click)="goToProduct(item);">\n          <img class="item-img" src="../../assets/imgs/boeuf.jpg" width="50" height="50">\n          <div style="text-align: left;">\n            <h2>{{truncateText(item.name, 20)}}</h2>\n            <p>{{truncateText(item.description, 30)}}</p>\n            <p>Prix : {{item.price}}€/kg</p>\n            <p>Nombre de personne(s) : {{item.qty}}</p>\n          </div>\n        </button>\n      </ion-item>\n      <ion-item-options side="right" class="item-design">\n        <button ion-button color="danger" (click)="deleteItem(item);">Supprimer</button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n  <div *ngIf="currentCart.length > 0"style="text-align: center; margin-top: 50px;">\n    <button class="confirm-order" (click)="presentConfirm();">Valider la commande</button>\n  </div>\n  <div *ngIf="currentCart.length == 0" style="text-align: center;">\n    <p style="color: white; font-size: 20px;">Votre panier est vide..</p>\n    <button class="go-to-products-button" (click)="goToProducts()">Aller au produits</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/cart/cart.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__["a" /* RestProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_global_var_global_var__["a" /* GlobalVarProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_global_var_global_var__["a" /* GlobalVarProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_global_var_global_var__["a" /* GlobalVarProvider */]) === "function" && _e || Object])
     ], CartPage);
     return CartPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=cart.js.map
@@ -1123,7 +1132,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/login/login.html"*/'<ion-content padding class="page-login">\n  <div class="login-body">\n    <ion-item class="input-text">\n      <ion-label floating>Email</ion-label>\n      <ion-input type="email" [(ngModel)]="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>\n    </ion-item>\n    <ion-item class="input-text">\n      <ion-label floating>Mot de passe</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n    <div style="text-align: center; margin-top: 50px;">\n      <button class="login-button" (click)="doConnectUser();">Connexion</button>\n    </div>\n    <div>\n      <button class="go-to-register-button" (click)="registerUser();">S\'inscrire</button>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/login/login.html"*/'<ion-content padding class="page-login">\n  <div class="login-picture">\n      <img src="../assets/imgs/CDB.png" width="150" height="150">\n  </div>\n  <div class="login-body">\n    <ion-item class="input-text">\n      <ion-label floating>Email</ion-label>\n      <ion-input type="email" [(ngModel)]="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>\n    </ion-item>\n    <ion-item class="input-text">\n      <ion-label floating>Mot de passe</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n    <div style="text-align: center; margin-top: 50px;">\n      <button class="login-button lifted" (click)="doConnectUser();">Connexion</button>\n    </div>\n    <div>\n      <button class="go-to-register-button" (click)="registerUser();">S\'inscrire</button>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__providers_global_var_global_var__["a" /* GlobalVarProvider */]])
@@ -1223,7 +1232,7 @@ var ProductPage = (function () {
     };
     ProductPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-product',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/product/product.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Produit</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding class="page-product">\n  <div class="data-container">\n    <div class="img-container">\n      <img class="img-circle" src="../../assets/imgs/boeuf.jpg" width="100" height="100">\n    </div>\n    <h2 style="text-align: center;">{{product.name}}</h2>\n    <p style="text-align: justify;">{{product.description}}</p>\n    <div class="p-style">\n      <p>Prix : {{product.price}}€/kg</p>\n      <p>Maturation : {{product.maturation}}</p>\n      <label>Nombre de personne(s) : </label>\n      <ion-input class="input-number-product" type="number" placeholder="Quantité" [(ngModel)]="qty" min="1"></ion-input>\n    </div>\n  </div>\n  <div *ngIf="showAdd" style="text-align: center; margin-top: 50px;">\n    <button class="add-to-cart-button" (click)="addToCart();">Ajouter au panier</button>\n  </div>\n  <div *ngIf="cartUpdate" style="text-align: center; margin-top: 50px;">\n    <button class="add-to-cart-button" (click)="updateCart();">Mettre à jour la commande</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/product/product.html"*/,
+            selector: 'page-product',template:/*ion-inline-start:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/product/product.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Produit</ion-title>\n    <ion-buttons end>\n      <button class="cart-icon" (click)="openCartPage();">\n        <ion-icon name="cart"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding class="page-product">\n  <div class="data-container">\n    <div class="img-container">\n      <img class="img-circle" src="../../assets/imgs/boeuf.jpg" width="100" height="100">\n    </div>\n    <h2 style="text-align: center;">{{product.name}}</h2>\n    <p style="text-align: justify;">{{product.description}}</p>\n    <div class="p-style">\n      <p>Prix : {{product.price}}€/kg</p>\n      <p>Maturation : {{product.maturation}}</p>\n      <label>Nombre de personne(s) : </label>\n      <ion-input class="input-number-product" type="number" placeholder="Quantité" [(ngModel)]="qty" min="1"></ion-input>\n    </div>\n  </div>\n  <div *ngIf="showAdd" style="text-align: center; margin-top: 50px;">\n    <button class="add-to-cart-button" (click)="addToCart();">Ajouter au panier</button>\n  </div>\n  <div *ngIf="cartUpdate" style="text-align: center; margin-top: 50px;">\n    <button class="update-order-button" (click)="updateCart();">Mettre à jour la commande</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/maximedulin/Documents/MaCoteDeBoeuf/src/pages/product/product.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_global_var_global_var__["a" /* GlobalVarProvider */]])

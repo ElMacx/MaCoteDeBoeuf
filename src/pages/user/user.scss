@@ -3,13 +3,20 @@
 }
 
 .save-button {
-  background-color: #2980b9;
-  font-weight: bold;
-  font-size: 15px;
-  width: 130px;
-  height: 40px;
-  border-radius: 2px;
-  color: white;
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 13px;
+  font-weight: 500;
+  width: 160px;
+  height: 55px;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease 0s;
 }
 
 .disconnect-button {

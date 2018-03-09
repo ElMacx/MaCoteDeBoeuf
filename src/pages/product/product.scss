@@ -27,14 +27,29 @@
   text-transform: uppercase;
   letter-spacing: 2.5px;
   border-radius: 45px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
-  width: 200px;
-  height: 55px;
+  width: 180px;
+  height: 45px;
   border: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   outline: none;
-  transition: all 0.3s ease 0s;
+}
+
+.update-order-button {
+  background-color: #fff;
+  color: #EC4A31;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  border-radius: 45px;
+  font-size: 11px;
+  font-weight: 500;
+  width: 180px;
+  height: 45px;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
 .p-style {

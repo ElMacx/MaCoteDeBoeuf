@@ -1,4 +1,7 @@
 <ion-content padding class="page-login">
+  <div class="login-picture">
+      <img src="../assets/imgs/CDB.png" width="150" height="150">
+  </div>
   <div class="login-body">
     <ion-item class="input-text">
       <ion-label floating>Email</ion-label>
@@ -9,7 +12,7 @@
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
     <div style="text-align: center; margin-top: 50px;">
-      <button class="login-button" (click)="doConnectUser();">Connexion</button>
+      <button class="login-button lifted" (click)="doConnectUser();">Connexion</button>
     </div>
     <div>
       <button class="go-to-register-button" (click)="registerUser();">S'inscrire</button>

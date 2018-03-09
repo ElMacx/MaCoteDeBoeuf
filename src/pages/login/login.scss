@@ -2,8 +2,14 @@
   background-image:radial-gradient(#EC4A31, #B2332A);
 }
 
+.login-picture {
+  position: absolute;
+  left: 120px;
+  top: 60px;
+}
+
 .login-body {
-  margin-top: 180px;
+  margin-top: 230px;
 }
 
 .input-text {
@@ -18,17 +24,18 @@
   text-transform: uppercase;
   letter-spacing: 2.5px;
   border-radius: 45px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   width: 160px;
-  height: 55px;
+  height: 45px;
   border: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   outline: none;
   transition: all 0.3s ease 0s;
 }
 
-.login-button:hover {
+
+.login-button:active {
   background-color: #2EE59D;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
